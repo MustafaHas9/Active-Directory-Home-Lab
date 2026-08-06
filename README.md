@@ -23,7 +23,7 @@ This lab simulates a small business network environment with centralized authent
 
 # Network Architecture
 
-![Network Diagram](images/network-diagram.png)
+![Active Directory Homelab Network Architecture](Images/Active%20Directory%20Homelab%20Network%20Architecture.png)
 
 ## Lab Overview
 

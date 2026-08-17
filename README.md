@@ -19,14 +19,14 @@ The project demonstrates hands-on experience with Windows Server administration,
 
 The lab was built in Oracle VirtualBox using four virtual machines, with each system assigned a dedicated role within the environment.
 
+
+![VirtualBox Lab Environment](Images/Lab%20Environment.png)
+
 | Machine | Role |
 |---|---|
 | **DC01** | Active Directory Domain Services, DNS, and DHCP |
 | **RRAS01** | Routing, NAT, and internet gateway |
 | **FS01** | SMB file server and departmental shares |
 | **CLIENT01** | Domain-joined Windows 11 workstation |
-
-![VirtualBox Lab Environment](images/all-4-vms-in-virtualbox.png)
-
 
 

@@ -66,5 +66,31 @@ Security groups: **Engineering, Marketing, HR and IT** were organized within the
 
 ![Active Directory OU Structure](Images/OU%20Overview.png)
 
+## DNS & DHCP Configuration
+
+DC01 provides centralized **DNS and DHCP services** for the internal network, allowing domain systems to automatically receive network configurations and resolve both internal and external hostnames.
+
+### DNS Configuration
+
+DNS was configured alongside Active Directory to provide name resolution for the `homelab.com` domain. A **reverse lookup zone** and PTR records were configured to support IP-to-hostname resolution.
+
+External DNS forwarders were also configured, allowing DNS requests that cannot be resolved locally to be forwarded to external DNS servers.
+
+![DNS Forwarders](Images/DNS%20Forwarder.png)
+
+
+![DNS Reverse Lookup Zone](Images/DNS%20Reverse%20+%20PTR.png)
+
+Reverse DNS resolution was later tested with domain-joined **CLIENT01** to verify that IP addresses correctly resolve to their associated hostnames.
+
+![Reverse DNS Lookup Test](Images/Reverse%20DNS%20Lookup.png)
+
+### DHCP Configuration
+
+A DHCP scope was configured on DC01 to automatically provide network configuration to domain clients. The scope distributes settings including:
+
+* IPv4 addresses
+
+
 
 

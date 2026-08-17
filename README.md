@@ -112,6 +112,18 @@ DHCP functionality was verified from CLIENT01 using `ipconfig /all`. The worksta
 
 ![DHCP Configuration on CLIENT01](Images/CLIENT01%20DHCP.png)
 
+## RRAS & NAT Configuration
+
+RRAS01 was configured with **Routing and Remote Access Service (RRAS)** to provide routing and Network Address Translation (NAT) for the internal lab network.
+
+Using its two network interfaces, **RRAS01** routes traffic between the isolated Active Directory network and the external network. **NAT** allows internal systems to access external networks while keeping the lab environment separated from the host network.
+
+![RRAS01 Routing and NAT Configuration](Images/RRAS01%20IP%20Config.png)
+
+Connectivity was verified from **CLIENT01** by successfully pinging google.com, confirming that **routing, NAT, and DNS resolution** were functioning correctly.
+
+![CLIENT01 Internet Connectivity Test](Images/CLIENT01%20Ping%20Google.png)
+
 
 
 

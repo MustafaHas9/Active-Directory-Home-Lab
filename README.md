@@ -14,6 +14,22 @@ The project demonstrates hands-on experience with Windows Server administration,
 
 ![Active Directory Homelab Network Architecture](Images/Active%20Directory%20Homelab%20Network%20Architecture.png)
 
+## Network Configuration
+
+The lab uses an **isolated internal network** for communication between the domain infrastructure. Static IPv4 addresses were assigned to the servers to ensure that services such as Active Directory, DNS, DHCP, and routing remain consistently available.
+
+### DC01
+
+DC01 is connected to the internal network and uses a **static IPv4 configuration**. It serves as the primary **Domain Controller, DNS server, and DHCP server** for the environment.
+
+
+### RRAS01
+
+RRAS01 uses **two network interfaces** to route traffic between the internal lab network and the external network. The internal interface provides a gateway for domain systems, while the external interface provides connectivity outside the isolated network.
+
+RRAS01 is later configured with **Routing and Remote Access Service (RRAS) and Network Address Translation (NAT)** to allow internal systems to access the internet.
+
+
 
 ## Lab Environment
 
@@ -28,5 +44,27 @@ The lab was built in Oracle VirtualBox using four virtual machines, with each sy
 | **RRAS01** | Routing, NAT, and internet gateway |
 | **FS01** | SMB file server and departmental shares |
 | **CLIENT01** | Domain-joined Windows 11 workstation |
+
+## Active Directory Configuration
+
+**Active Directory Domain Services (AD DS)** was deployed on DC01, which was promoted to a Domain Controller for the `homelab.com` domain. Active Directory provides centralized authentication and management for users, computers, groups, and other resources throughout the lab.
+
+### Organizational Unit Structure
+
+Organizational Units (OUs) were created to simulate the structure of a real organization and provide logical separation between users, computers, and departments.
+
+The `Branch1` OU contains dedicated OUs for:
+
+
+* **Computers**
+* **Departments**
+* **Servers**
+* **Users**
+
+
+Security groups: **Engineering, Marketing, HR and IT** were organized within their respective OUs. This structure allows **Group Policy and access controls** to be applied to specific users and departments rather than across the entire domain.
+
+![Active Directory OU Structure](images/OU%20Overview.png)
+
 
 

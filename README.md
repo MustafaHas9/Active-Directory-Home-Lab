@@ -96,9 +96,22 @@ Reverse DNS resolution was later tested with domain-joined **CLIENT01** to verif
 
 ### DHCP Configuration
 
-A DHCP scope was configured on DC01 to automatically provide network configuration to domain clients. The scope distributes settings including:
+The **DHCP Server role** was configured on DC01 to automatically provide network configuration to client devices on the internal network. A DHCP scope was created with the appropriate address range and options for the lab environment.
 
-* IPv4 addresses
+The DHCP scope provides clients with:
+
+* IPv4 address
+* Subnet mask
+* Default gateway
+* DNS server
+* DNS domain name
+
+![DHCP Configuration on DC01](Images/DC01%20DHCP%20Config.png)
+
+DHCP functionality was verified from CLIENT01 using `ipconfig /all`. The workstation successfully received its IPv4 configuration from DC01, including the configured default gateway and DNS server.
+
+![DHCP Configuration on CLIENT01](Images/CLIENT01%20DHCP.png)
+
 
 
 

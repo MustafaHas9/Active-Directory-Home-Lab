@@ -64,7 +64,7 @@ The `Branch1` OU contains dedicated OUs for:
 
 Security groups: **Engineering, Marketing, HR and IT** were organized within their respective OUs. This structure allows **Group Policy and access controls** to be applied to specific users and departments rather than across the entire domain.
 
-![Active Directory OU Structure](images/OU%20Overview.png)
+![Active Directory OU Structure](Images/OU%20Overview.png)
 
 
 

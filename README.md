@@ -2,39 +2,31 @@
 
 ## Overview
 
-This project is a virtualized enterprise-style Active Directory environment built using **Windows Server 2025** and **VirtualBox**.
+This project is a multi-server Active Directory home lab built in Oracle VirtualBox to simulate a small enterprise Windows environment. The lab consists of a Domain Controller (DC01), routing/NAT server (RRAS01), file server (FS01), and domain-joined Windows 11 client (CLIENT01).
 
-The goal of this lab is to gain hands-on experience with:
+The environment was configured with Active Directory Domain Services, DNS, DHCP, Group Policy, RRAS/NAT, and SMB file sharing. It also implements departmental Organizational Units, security groups, role-based file permissions, automatic network drive mapping, and centralized workstation policies.
 
-- Active Directory Domain Services (AD DS)
-- DNS
-- DHCP
-- Group Policy
-- Domain joining Windows clients
-- Routing and NAT using RRAS
-- Windows File Services
-- SMB file sharing
-- NTFS permissions
-- Windows Server administration
+The project demonstrates hands-on experience with Windows Server administration, Active Directory, networking, access control, Group Policy, and troubleshooting in a virtualized enterprise-style environment.
 
-This lab simulates a small business network environment with centralized authentication, network services, and file storage.
+--
 
----
-
-# Network Architecture
+## Network Architecture
 
 ![Active Directory Homelab Network Architecture](Images/Active%20Directory%20Homelab%20Network%20Architecture.png)
 
-## Lab Overview
 
-The environment consists of:
+## Lab Environment
 
-| Device | Role | IP Address |
-|---|---|---|
-| DC01 | Domain Controller, DNS, DHCP | 192.168.10.10 |
-| RRAS01 | Router, NAT Gateway | 192.168.10.1 |
-| FS01 | File Server | 192.168.10.20 |
-| CLIENT01 | Domain Joined Windows 11 Client | DHCP |
+The lab was built in Oracle VirtualBox using four virtual machines, with each system assigned a dedicated role within the environment.
+
+| Machine | Role |
+|---|---|
+| **DC01** | Active Directory Domain Services, DNS, and DHCP |
+| **RRAS01** | Routing, NAT, and internet gateway |
+| **FS01** | SMB file server and departmental shares |
+| **CLIENT01** | Domain-joined Windows 11 workstation |
+
+![VirtualBox Lab Environment](images/all-4-vms-in-virtualbox.png)
 
 
 

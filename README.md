@@ -66,6 +66,15 @@ Security groups: **Engineering, Marketing, HR and IT** were organized within the
 
 ![Active Directory OU Structure](Images/OU%20Overview.png)
 
+## Domain Client Configuration
+
+CLIENT01 was configured as a **Windows 11 workstation** and joined to the `homelab.com` Active Directory domain. This allows domain users to authenticate using centralized Active Directory credentials and provides the workstation access to domain-managed resources and policies.
+
+CLIENT01 is also used throughout the lab to validate **DNS resolution, DHCP configuration, internet connectivity, Group Policy application, and access to departmental file shares**.
+
+![CLIENT01 Domain Joined](Images/CLIENT01%20info.png)
+
+
 ## DNS & DHCP Configuration
 
 DC01 provides centralized **DNS and DHCP services** for the internal network, allowing domain systems to automatically receive network configurations and resolve both internal and external hostnames.

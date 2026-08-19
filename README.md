@@ -9,6 +9,14 @@ The environment was configured with Active Directory Domain Services, DNS, DHCP,
 The project provided hands-on experience with Windows Server administration, Active Directory, networking, access control, Group Policy, and troubleshooting in a virtualized environment.
 
 ---
+## Video Walkthroughs
+
+Video walkthroughs documenting the configuration and testing of the lab.
+
+- ▶️ [Part 1 — Active Directory Setup](https://www.youtube.com/watch?v=1mkJi7Ar-DA&t=919s)
+- ▶️ [Part 2 — DNS, DHCP & Domain Client](https://www.youtube.com/watch?v=neriTCaLLzA&t=13s)
+
+---
 
 ## Network Architecture
 

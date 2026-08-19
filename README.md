@@ -8,7 +8,6 @@ The environment was configured with Active Directory Domain Services, DNS, DHCP,
 
 The project demonstrates hands-on experience with Windows Server administration, Active Directory, networking, access control, Group Policy, and troubleshooting in a virtualized enterprise-style environment.
 
---
 
 ## Network Architecture
 
@@ -16,7 +15,7 @@ The project demonstrates hands-on experience with Windows Server administration,
 
 ## Network Configuration
 
-The lab uses an **isolated internal network** for communication between the domain infrastructure. Static IPv4 addresses were assigned to the servers to ensure that services such as Active Directory, DNS, DHCP, and routing remain consistently available.
+The lab uses an **isolated internal network** for communication inside the domain. Static IPv4 addresses were assigned to the servers to ensure that services such as Active Directory, DNS, DHCP, and routing remain consistently available.
 
 ### DC01
 
@@ -154,6 +153,108 @@ A screen saver timeout policy was configured to automatically apply workstation 
 Windows Update settings were centrally configured through Group Policy to provide consistent update behavior across domain-joined systems.
 
 ![Windows Update GPO](Images/GPO%20-%20Auto%20Update.png)
+
+
+## SMB File Shares
+
+Departmental **SMB file shares** were created on FS01 to provide centralized network storage for users within the `homelab.com` domain. Separate shared folders were created for **Engineering, Marketing, HR, and IT**, allowing each department to maintain its own network-accessible storage.
+
+The shares are hosted centrally on FS01 and can be accessed by domain users using paths such as `\\FS01\Engineering`, for the **Engineering** folder for example.
+
+![Departmental File Shares](Images/Driveshare%20Folders.png)
+
+The shared folders provide the network resources later used for **group-based access control and automatic drive mapping through Group Policy**.
+
+## NTFS Permissions & Access Control
+
+**NTFS permissions** were configured on the departmental folders to control access based on **Active Directory security group membership**. Instead of assigning permissions directly to individual users, departmental security groups were granted access to their corresponding folders, allowing permissions to be managed centrally through Active Directory.
+
+For example, the **Engineering** security group was granted access to the Engineering folder on FS01, while users outside of the authorized group were restricted from accessing the resource.
+
+![Engineering NTFS Permissions](Images/Engineering%20Driveshare%20Security.png)
+
+Permissions were validated from CLIENT01 using domain user accounts. An authorized user was able to access the appropriate departmental share.
+
+![Authorized Share Access](Images/Engineering%20Drive%20Share%20Accessible.png)
+
+While an unauthorized user was denied access.
+
+![Unauthorized Share Access](Images/Fileshare%20Access%20Denied.png)
+
+This configuration demonstrates **role-based access control using Active Directory security groups and NTFS permissions**, allowing access to departmental resources to be managed without configuring permissions individually for each user.
+
+
+## Automatic Network Drive Mapping
+
+**Group Policy Preferences** were configured to automatically map departmental network drives for domain users when they sign in to CLIENT01. Each mapped drive points to the appropriate SMB share hosted on FS01.
+
+Drive mapping is targeted using **Active Directory security group membership**, ensuring users automatically receive access only to the network drives associated with their department.
+
+![Automatic Drive Mapping GPO](Images/All%20Drive%20Maps.png)
+
+Security-group targeting was configured for each departmental drive so that the appropriate mapping is applied based on the authenticated user's group membership.
+
+![Drive Mapping Security Group Targeting](Images/Drive%20Map%20Security.png)
+
+The configuration was validated from CLIENT01 by signing in with domain accounts and confirming that the appropriate network drives were automatically mapped.
+
+![Mapped Network Drives](Images/Drive%20Map%20Result.png)
+
+## Testing & Troubleshooting
+
+Throughout the deployment, the environment was tested from both server and client systems to verify **network connectivity, name resolution, authentication, Group Policy application, and resource access**.
+
+### Network Connectivity Troubleshooting
+
+During testing, Windows Firewall initially prevented network communication between systems on the internal network. Connectivity was tested using tools such as `ping` and `ipconfig` to isolate the issue and verify the network configuration.
+
+After correcting the firewall configuration, communication between the systems was restored and connectivity across the internal network was successfully verified.
+
+![Firewall Connectivity Issue](Images/Firewall%20Issue.png)
+
+
+Additional validation performed throughout the lab included:
+
+* DHCP address assignment
+* Forward and reverse DNS resolution
+* External network connectivity through RRAS/NAT
+* Domain user authentication
+* Group Policy application
+* SMB file share access
+* NTFS permission enforcement
+* Automatic network drive mapping
+
+## Technologies & Skills Demonstrated
+
+This project provided hands-on experience deploying and administering a **multi-server Windows domain environment** and integrating core enterprise infrastructure services.
+
+**Technologies Used:**
+
+* Windows Server 2025
+* Windows 11
+* Active Directory Domain Services (AD DS)
+* Group Policy
+* DNS & DHCP
+* Routing and Remote Access Service (RRAS)
+* NAT and Internal Networks (LAN)
+* SMB File Sharing
+* NTFS Permissions
+* VirtualBox
+
+**Skills Demonstrated:**
+
+* Active Directory administration and domain management
+* User, group, and Organizational Unit management
+* DNS and DHCP configuration
+* IPv4 addressing, routing, and network troubleshooting
+* Group Policy creation and deployment
+* Role-based access control using security groups
+* SMB file server administration
+* NTFS permission management
+* Automated network drive deployment
+* Windows client administration and domain integration
+
+
 
 
 

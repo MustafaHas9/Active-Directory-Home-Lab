@@ -124,6 +124,37 @@ Connectivity was verified from **CLIENT01** by successfully pinging google.com, 
 
 ![CLIENT01 Internet Connectivity Test](Images/CLIENT01%20Ping%20Google.png)
 
+## Group Policy Configuration
+
+**Group Policy** was used to centrally manage security settings, workstation configurations, and user policies across the `homelab.com` domain. Multiple Group Policy Objects (GPOs) were created and linked to the appropriate Organizational Units to apply settings based on users and computers within the environment.
+
+![Group Policy Overview](Images/GPO%20Overview.png)
+
+### Workstation Restrictions
+
+A Group Policy Object was configured to **disable access to the Windows Control Panel and Settings** for targeted domain users. This demonstrates how administrative restrictions can be centrally enforced across domain-joined workstations.
+
+![Control Panel Restriction GPO](Images/GPO%20-%20Disable%20Control%20Panel.png)
+
+
+
+
+Attempting to access control panel from a non-admin account causes this error message.
+
+![Control Panel Restriction Test GPO](Images/GPO%20-%20Disable%20Control%20Panel%20Test.png)
+
+### Screen Saver Policy
+
+A screen saver timeout policy was configured to automatically apply workstation security settings to domain users. This provides centralized control over workstation behavior without requiring configuration on each individual client.
+
+![Screen Saver Timeout Policy](Images/GPO%20-%20Screen%20Saver.png)
+
+### Windows Update Policy
+
+Windows Update settings were centrally configured through Group Policy to provide consistent update behavior across domain-joined systems.
+
+![Windows Update GPO](Images/GPO%20-%20Auto%20Update.png)
+
 
 
 
